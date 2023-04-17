@@ -26,6 +26,8 @@ namespace Train.Pages
             InitializeComponent();
             books = db.Books.ToList();
             MainList.ItemsSource = books;
+            CountOfSelected.Text = (basketBooks.Count).ToString();
+            Price.Text = priceTotal.ToString();
         }
 
         private void MainList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -40,6 +42,29 @@ namespace Train.Pages
         private void BasketButton_Click(object sender, RoutedEventArgs e)
         {
             Manager.frame.Navigate(new BasketPage());
+        }
+        decimal? help;
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Book result = (sender as Button)?.DataContext as Book;
+            int count = 0;
+            basketBooks.Add(result);
+            CountOfSelected.Text = (basketBooks.Count).ToString();
+            priceTotal += result.Price;
+            help = priceTotal;
+            while (help > 0)
+            {
+                help -= 500;
+                discountTotal += 1;
+            }
+            discountTotal -= 1;
+            if (basketBooks.Count >= 3 && basketBooks.Count < 5)
+            {
+                discountTotal += 5;
+                
+            }
+            Price.Text = priceTotal.ToString();
+            Discount.Text = discountTotal.ToString();
         }
     }
 }

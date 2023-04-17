@@ -28,13 +28,15 @@ namespace Train.Pages
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            Manager.frame.GoBack();
+            Manager.frame.Navigate(new MainPage());
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
+            MainList.ItemsSource = null;
             basketBooks.Clear();
             MainList.ItemsSource = basketBooks;
+            priceTotal = 0;
         }
     }
 }

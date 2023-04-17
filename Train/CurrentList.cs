@@ -10,5 +10,7 @@ namespace Train
     {
         public static List<Book> books;
         public static DatabaseEpContext db = new DatabaseEpContext();
+        public static decimal? priceTotal = 0;
+        public static int discountTotal = 0;
     }
 }
