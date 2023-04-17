@@ -23,7 +23,7 @@ namespace Train.Pages
         public BasketPage()
         {
             InitializeComponent();
-            MainList.ItemsSource = basketBooks;
+            MainList.ItemsSource = basketBooks; // приравнивание содержимого ListView к листу корзины
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -33,9 +33,9 @@ namespace Train.Pages
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            MainList.ItemsSource = null;
-            basketBooks.Clear();
-            MainList.ItemsSource = basketBooks;
+            MainList.ItemsSource = null; // очищение ListView
+            basketBooks.Clear(); // очищение списка
+            MainList.ItemsSource = basketBooks; // заново присвоение
             priceTotal = 0;
         }
     }

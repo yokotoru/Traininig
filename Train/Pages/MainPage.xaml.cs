@@ -24,19 +24,10 @@ namespace Train.Pages
         public MainPage()
         {
             InitializeComponent();
-            books = db.Books.ToList();
-            MainList.ItemsSource = books;
-            CountOfSelected.Text = (basketBooks.Count).ToString();
-            Price.Text = priceTotal.ToString();
-        }
-
-        private void MainList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var track = ((ListView)sender).SelectedItem as Book;
-            if (track != null)
-            {
-                basketBooks.Add(track);
-            }
+            books = db.Books.ToList(); // получение данных из бд в основной лист
+            MainList.ItemsSource = books; // приравнивание содержимого ListView к основному листу с книгами
+            CountOfSelected.Text = (basketBooks.Count).ToString(); // количество книг в корзине
+            Price.Text = priceTotal.ToString(); // итоговая цена корзины
         }
 
         private void BasketButton_Click(object sender, RoutedEventArgs e)
@@ -46,9 +37,10 @@ namespace Train.Pages
         decimal? help;
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            Book result = (sender as Button)?.DataContext as Book;
+            Book result = (sender as Button)?.DataContext as Book; // получение объекта, который нужно добавить
+            basketBooks.Add(result); // добавляем элемент в лист корзины
+            // ниже не доделано
             int count = 0;
-            basketBooks.Add(result);
             CountOfSelected.Text = (basketBooks.Count).ToString();
             priceTotal += result.Price;
             help = priceTotal;

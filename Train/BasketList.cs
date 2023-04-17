@@ -8,6 +8,6 @@ namespace Train
 {
     internal class BasketList
     {
-        public static List<Book> basketBooks = new List<Book>();
+        public static List<Book> basketBooks = new List<Book>(); // инициализация листа корзины
     }
 }

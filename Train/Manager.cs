@@ -9,6 +9,6 @@ namespace Train
 {
     internal class Manager
     {
-        public static Frame frame { get; set; }
+        public static Frame frame { get; set; } // класс для перехода по страницам
     }
 }

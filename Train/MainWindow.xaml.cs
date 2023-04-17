@@ -23,7 +23,7 @@ namespace Train
         public MainWindow()
         {
             InitializeComponent();
-            Manager.frame = MainFrame;
+            Manager.frame = MainFrame;// приравнивание к объекту класса Manager главный Фрейм, куда все будет грузиться
             Manager.frame.Navigate(new MainPage());
         }
     }

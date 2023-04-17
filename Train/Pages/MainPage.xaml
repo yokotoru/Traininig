@@ -107,7 +107,6 @@
                                 TextWrapping="Wrap"
                                 FontSize="20"/>
                             </Grid>
-                                
                         </Grid>
                     </Border>
                 </DataTemplate>
